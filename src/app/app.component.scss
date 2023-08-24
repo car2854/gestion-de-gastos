@@ -1,0 +1,22 @@
+@import './../styles/colors';
+
+header{
+  background: $secundary;
+  color: white;
+  // padding-block: 20px;
+
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul{
+      display: flex;
+      list-style: none;
+      gap: 5px;
+      li{
+        
+      }
+    }
+  }
+
+}
