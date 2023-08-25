@@ -8,3 +8,41 @@
   padding: 0px;
   background-color: transparent;
 }
+
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+  .button{
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    border-radius: 2px;
+    background-color: $secundary;
+    color: white;
+    padding-inline: 40px;
+    padding-block: 8px;
+    p{
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .button::before{
+    z-index: 0;
+    content: '';
+    position: absolute;
+    top: 34px;
+    left: -138px;
+    background-color: $secundary-light;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+  }
+
+  .button:hover::before{
+    top: 0px;
+    left: 0px;
+  }
+}
+

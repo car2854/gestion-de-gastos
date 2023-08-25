@@ -12,18 +12,6 @@
   height: calc(100vh - 160px);
   .card{
     border: 1px solid black;
-  }
-}
-
-.buttons{
-  display: flex;
-  justify-content: flex-end;
-  button{
-    border: none;
-    border-radius: 2px;
-    background-color: $secundary;
-    color: white;
-    padding-inline: 40px;
-    padding-block: 8px;
+    cursor: pointer;
   }
 }

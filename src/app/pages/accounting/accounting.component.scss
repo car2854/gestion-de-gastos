@@ -1,0 +1,13 @@
+@import './../../../styles/colors';
+
+table{
+  border: 1px solid $secundary;
+  width: 100%;
+  thead{
+    background-color: $secundary;
+    color: white;
+  }
+  tbody{
+    background-color: red;
+  }
+}
