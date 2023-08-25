@@ -9,6 +9,36 @@
   background-color: transparent;
 }
 
+a{
+  color: white;
+  text-decoration: none;
+}
+
+form{
+  
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input, textarea{
+    padding: 8px;
+  }
+
+
+}
+
+.group{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
 .buttons{
   display: flex;
   justify-content: flex-end;
