@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { AccountingService } from 'src/app/services/accounting.service';
 
 @Component({
   selector: 'app-new-accounting',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-accounting.component.scss']
 })
 export class NewAccountingComponent {
+
+  private fb = inject(FormBuilder);
+
+
+  newAccounting = () => {
+
+  }
 
 }

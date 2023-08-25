@@ -7,6 +7,8 @@ import { AccountingListComponent } from './pages/accounting-list/accounting-list
 import { AccountingComponent } from './pages/accounting/accounting.component';
 import { NewAccountingComponent } from './pages/new-accounting/new-accounting.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { NewAccountingComponent } from './pages/new-accounting/new-accounting.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
