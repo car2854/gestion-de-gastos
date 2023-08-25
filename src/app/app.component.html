@@ -1,38 +1,15 @@
 <header>
   <nav>
-    <h1>NameApp</h1>
+    <h1><a routerLink="/dashboard/accounting-list">NameApp</a></h1>
     <ul>
       <li>Opcion 1</li>
       <li>Opcion 2</li>
-      <li>Opcion 3</li>
-      <li>Opcion 4</li>
-      <li>Opcion 5</li>
     </ul>
   </nav>
 </header>
 
 <section>
 
-  <h1>Lista de cuentas creadas</h1>
-
-  <div>
-    <h1>Nombre del grupo 1</h1>
-    <p>description</p>
-    <small>50$</small>
-  </div>
-  <div>
-    <h1>Nombre del grupo 1</h1>
-    <p>description</p>
-    <small>50$</small>
-  </div>
-  <div>
-    <h1>Nombre del grupo 1</h1>
-    <p>description</p>
-    <small>50$</small>
-  </div>
+  <router-outlet></router-outlet>
 
 </section>
-
-<footer>
-  <p>Derechos reservados</p>
-</footer>

@@ -1,0 +1,29 @@
+@import './../../../styles/colors';
+
+.title{
+  text-align: center;
+  padding-block: 8px;
+}
+
+.accounting-list{
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  height: calc(100vh - 160px);
+  .card{
+    border: 1px solid black;
+  }
+}
+
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+  button{
+    border: none;
+    border-radius: 2px;
+    background-color: $secundary;
+    color: white;
+    padding-inline: 40px;
+    padding-block: 8px;
+  }
+}

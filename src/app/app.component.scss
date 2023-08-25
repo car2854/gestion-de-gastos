@@ -1,10 +1,9 @@
 @import './../styles/colors';
 
 header{
+  padding: 20px;
   background: $secundary;
   color: white;
-  // padding-block: 20px;
-
   nav{
     display: flex;
     justify-content: space-between;
@@ -13,10 +12,11 @@ header{
       display: flex;
       list-style: none;
       gap: 5px;
-      li{
-        
-      }
     }
   }
 
+}
+
+section{
+  padding-inline: 20px;
 }
