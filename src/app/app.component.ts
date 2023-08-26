@@ -9,9 +9,10 @@ import { AccountingDataService } from './services/data/accounting-data.service';
 export class AppComponent {
   title = 'accounting-angular';
   
-  private accounting = inject(AccountingDataService);
+  private accountingData = inject(AccountingDataService);
 
   constructor(){
-    this.accounting.readData();
+    this.accountingData.readData();
+
   }
 }
