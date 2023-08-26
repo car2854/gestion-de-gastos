@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { AccountingService } from 'src/app/services/accounting.service';
+import { FormBuilder, Validators } from '@angular/forms';
+import { AccountingDataService } from 'src/app/services/data/accounting-data.service';
 
 @Component({
   selector: 'app-new-accounting',
@@ -10,9 +10,19 @@ import { AccountingService } from 'src/app/services/accounting.service';
 export class NewAccountingComponent {
 
   private fb = inject(FormBuilder);
+  private accountingData = inject(AccountingDataService);
 
+  public accountingForm = this.fb.group({
+    title: [, [Validators.required]],
+    amount: [0, [Validators.required]],
+    description: [, [Validators.required]]
+  });
 
   newAccounting = () => {
+
+    console.log(this.accountingForm.value);
+    if (this.accountingForm.invalid) return;
+
 
   }
 

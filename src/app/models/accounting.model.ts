@@ -7,6 +7,7 @@ export class AccountingModel {
     public title: string,
     public amount: number,
     public created_at: Date,
+    public description: string,
     public status: StatusAccountingEnum,
     public list: ListModel[] | null,
   ){}

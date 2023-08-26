@@ -1,24 +1,26 @@
 <h1>Nuevo perfil contable</h1>
 
-<form action="">
+<form [formGroup]="accountingForm" (ngSubmit)="newAccounting()" autocomplete="off">
 
   <div class="form-group">
     <label for="">Titulo</label>
-    <input type="text">
+    <input type="text" formControlName="title">
   </div>
 
   <div class="form-group">
     <label for="">Cantidad Inicial</label>
-    <input type="number">
+    <input type="number" formControlName="amount">
   </div>
 
   <div class="form-group">
     <label for="">Descripcion</label>
-    <textarea class="h-120"></textarea>
+    <textarea class="h-120" formControlName="description"></textarea>
   </div>
 
   <div class="buttons">
-    <div class="button"><p>Crear</p></div>
+    <div class="button" (click)="newAccounting()"><p>Crear</p></div>
   </div>
+
+  <button type="submit" hidden></button>
 
 </form>
