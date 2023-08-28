@@ -32,17 +32,32 @@ export class ListService {
           accounting.list.push(
             data
           );
+          accounting.list = accounting.list.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());            
         }
         return accounting;
       });
       return accountingData;
-
     });
 
     this.accountingData.saveData();
 
   }
 
+  deleteList = (idAccounting:string, idList:string) => {
+    this.accountingData.accounting.update((accountingModel: AccountingModel[]) => {
 
+      accountingModel = accountingModel.map((accountingModelData: AccountingModel) => {
+        if (accountingModelData.id === idAccounting){
+          accountingModelData.list = accountingModelData.list.filter((listModel: ListModel) => listModel.id != idList).map((_) => _);
+        }
+        return accountingModelData;
+      });
+      
+      return accountingModel
+    });
+    
+    this.accountingData.saveData();
+
+  }
 
 }
