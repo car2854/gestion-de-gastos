@@ -1,5 +1,6 @@
+import { TypeListEnum } from "../enum/type-list.enum";
+
 export interface ListInterface{
-  id: string,
   amount: number,
   date: Date,
   description: string

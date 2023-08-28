@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ListService } from 'src/app/services/localstorage/list.service';
 
 @Component({
   selector: 'app-accounting',
@@ -6,5 +9,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./accounting.component.scss']
 })
 export class AccountingComponent {
+
+  private fb = inject(FormBuilder);
+  private listService = inject(ListService);
+  private route = inject(ActivatedRoute);
+
+  public listForm = this.fb.group({
+    amount: [0,[Validators.required]],
+    date: [],
+    description: [,[Validators.required]]
+  });
+
+  addNewList = () => {
+    
+    if (this.listForm.invalid) return;
+
+    this.listService.addNewListToAccounting( this.route.snapshot.paramMap.get('id') || '0' , {
+      amount: this.listForm.get('amount')!.value || 0,
+      date: new Date(this.listForm.get('date')!.value || Date.now()),
+      description: this.listForm.get('description')!.value || ''
+    });
+    
+    this.listForm.setValue({
+      amount: 0,
+      date: null,
+      description: null
+    });
+    
+  }
 
 }

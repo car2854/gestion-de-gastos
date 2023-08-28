@@ -1,7 +1,7 @@
 <h1 class="title">Lista de cuentas creadas</h1>
 <div class="accounting-list">
 
-  <div class="card" [routerLink]="['/dashboard/accounting', 1]" *ngFor="let accounting of accountingData.accounting(); trackBy: trackByFn">
+  <div class="card" [routerLink]="['/dashboard/accounting', accounting.id]" *ngFor="let accounting of accountingData.accounting(); trackBy: trackByFn">
     <h1>{{accounting.title}}</h1>
     <p>{{accounting.description}}</p>
     <small>{{accounting.amount}} Bs.</small>

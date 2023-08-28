@@ -1,4 +1,4 @@
-import { StatusListEnum } from "../enum/status-list.enum";
+import { TypeListEnum } from "../enum/type-list.enum";
 
 export class ListModel{
   constructor(
@@ -6,6 +6,6 @@ export class ListModel{
     public amount: number,
     public date: Date,
     public description: string,
-    public status: StatusListEnum
+    public type: TypeListEnum
   ){}
 }

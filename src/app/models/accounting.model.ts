@@ -9,7 +9,7 @@ export class AccountingModel {
     public created_at: Date,
     public description: string,
     public status: StatusAccountingEnum,
-    public list: ListModel[] | null,
+    public list: ListModel[],
   ){}
 
 }
