@@ -27,12 +27,12 @@
           <p>Fecha: <time>{{list.date | date}}</time></p>
         </div>
         <button type="button" (click)="delete(list.id)">
-          <i class="fa-solid fa-trash"></i>
+          <i class="fa-solid fa-trash-can"></i>
         </button>
       </div>
       <div class="history-body">
         <p>{{list.description}}.</p>
-        <p>Monto Final <span>{{list.amountTotal}} Bs.</span></p>
+        <p class="end-amount">Monto Final <span>{{list.amountTotal}} Bs.</span></p>
       </div>
     </div>
   </ng-container>

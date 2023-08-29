@@ -7,7 +7,7 @@
   margin: 0px;
   padding: 0px;
   background-color: transparent;
-  color: #292929;
+  color: $color-text;
 }
 
 body{
@@ -103,7 +103,7 @@ button{
 }
 
 p{
-  color: #BBBBBB;
+  color: $color-p;
 }
 
 .title-page{

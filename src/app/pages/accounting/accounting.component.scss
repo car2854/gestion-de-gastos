@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  height: calc(100vh - 600px);
+  height: calc(100vh - 575px);
   overflow-y: scroll;
 
   .initial{
@@ -26,8 +26,10 @@
     .history-title{
       p{
         font-size: 12px;
+        color: $color-text;
+        font-weight: bold;
         time{
-          font-weight: bold;
+          font-weight: normal;
         }
       }
       padding: 12px;
@@ -37,17 +39,38 @@
       background-color: #FAFAFA;
 
       button{
-        background-color: red;
+        transition: 0.3s;
+        background-color: #FF4D4F;
         color: white;
         border: none;
         border-radius: 4px;
-        padding: 8px;
-        padding-inline: 10px;
+        padding: 12px;
+        i{
+          color: white;
+        }
+      }
+
+      button:active{
+        animation-name: button;
+        animation-duration: 1s;
+      }
+
+      button:hover{
+        background-color: #ff585b;
       }
     }
     
     .history-body{
       padding: 12px;
+      font-size: 15px;
+      .end-amount{
+        padding-top: 8px;
+        color: $color-text;
+        font-weight: bold;
+        span{
+          font-weight: normal;
+        }
+      }
 
     }
 
@@ -55,5 +78,14 @@
 
   .end{
 
+  }
+}
+
+@keyframes button {
+  0%{
+    background-color: #f77173;
+  }
+  100%{
+    background-color: #FF4D4F;
   }
 }
