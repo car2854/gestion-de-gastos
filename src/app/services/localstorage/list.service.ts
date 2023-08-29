@@ -16,27 +16,43 @@ export class ListService {
 
   constructor() { }
 
+  private updateAmount = (list: ListModel[], amount:number) => {
+    return list.map((list: ListModel) => {
+      amount = amount + list.amount;
+      list.amountTotal = amount;
+      return list;
+    });
+  }
+
   addNewListToAccounting = (id: string, listForm: ListInterface) => {
 
     const data = new ListModel(
       uuidv4(),
       listForm.amount,
+      0,
       listForm.date,
       listForm.description,
       TypeListEnum.BODY
     );
 
     this.accountingData.accounting.update((accountingData:AccountingModel[]) => {
+
       accountingData = accountingData.map((accounting: AccountingModel) => {
+        
+
         if (accounting.id === id){
           accounting.list.push(
             data
           );
-          accounting.list = accounting.list.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());            
+          accounting.list = accounting.list.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());    
+
+          accounting.list = this.updateAmount(accounting.list, accounting.amount);
+
         }
         return accounting;
       });
       return accountingData;
+
     });
 
     this.accountingData.saveData();
@@ -49,10 +65,13 @@ export class ListService {
       accountingModel = accountingModel.map((accountingModelData: AccountingModel) => {
         if (accountingModelData.id === idAccounting){
           accountingModelData.list = accountingModelData.list.filter((listModel: ListModel) => listModel.id != idList).map((_) => _);
+          this.updateAmount(accountingModelData.list, accountingModelData.amount);
         }
+
+        
         return accountingModelData;
       });
-      
+
       return accountingModel
     });
     

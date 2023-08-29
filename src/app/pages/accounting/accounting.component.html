@@ -7,7 +7,7 @@
   
   <div>
     <p>Monto Inicial: <span>{{accounting.amount}} Bs.</span></p>
-    <p>Monto Final: <span>100 Bs.</span></p>
+    <p>Monto Final: <span>{{accounting.list[accounting.list.length - 1].amountTotal}} Bs.</span></p>
   </div>
 </div>
 
@@ -17,7 +17,7 @@
 <div class="histories">
 
   <div class="initial history">
-    <h1>Cantidad <span>50Bs</span></h1>
+    <h1>Cantidad <span>{{accounting.amount}} Bs.</span></h1>
   </div>
 
   <ng-container *ngFor="let list of accounting.list; trackBy: trackByFn">
@@ -30,15 +30,15 @@
         <p>Fecha <time>{{list.date | date}}</time></p>
       </div>
       <p>{{list.description}}.</p>
-      <p>Monto Final <span>20Bs</span></p>
+      <p>Monto Final <span>{{list.amountTotal}} Bs.</span></p>
     </div>
   </ng-container>
   
 
 
-  <div class="end history">
+  <!-- <div class="end history">
     <h1>Termino con 20Bs</h1>
-  </div>
+  </div> -->
 </div>
 
 <hr>
