@@ -27,12 +27,23 @@ form{
   .form-group{
     width: 100%;
     display: flex;
+    gap: 12px;
     flex-direction: column;
   }
 
   input, textarea{
     padding: 8px;
     resize: none;
+    border-radius: 5px;
+    border: 1px solid #D9D9D9;
+    transition: 0.2s;
+    outline: none;
+  }
+  
+  input:focus, textarea:focus{
+    -webkit-box-shadow: 0px 0px 2px 0.5px rgba(0,0,255,1);
+    -moz-box-shadow: 0px 0px 2px 0.5px rgba(0,0,255,1);
+    box-shadow: 0px 0px 2px 0.5px rgba(0,0,255,1);
   }
 
 
