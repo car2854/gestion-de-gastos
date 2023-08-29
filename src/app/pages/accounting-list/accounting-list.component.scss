@@ -1,21 +1,74 @@
 @import './../../../styles/colors';
 
+$border: 1px solid #000000;
+
 .title{
   text-align: center;
   padding-block: 8px;
 }
 
 .accounting-list{
+  margin-bottom: 20px;
   display: flex;
-  gap: 5px;
+  gap: 25px;
   flex-wrap: wrap;
-  height: calc(100vh - 160px);
+  height: calc(100vh - 180px);
+  overflow-y: scroll;
+  justify-content: center;
+
   .card{
-    border: 1px solid black;
-    .title{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: $border;
+    height: 350px;
+    width: calc(100vw / 6);
+
+    .image{
+      height: 350px;
+      border-bottom: $border;
     }
+  
+    .title{
+      font-size: 12px;
+      height: 40px;
+      overflow: hidden;
+    }
+
+    .body{
+      height: 100%;
+      margin: 8px;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .body-title{
+        height: 100%;
+      }
+
+      .body-footer{
+      }
+    }
+
+    .options{
+      display: flex;
+      align-items: center;
+      height: 100px;
+      border-top: $border;
+      button{
+        border: none;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+    }
+
   }
+}
+
+.separe{
+  border-right: $border;
+  height: 65%;
 }
