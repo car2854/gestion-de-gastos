@@ -15,7 +15,7 @@ export class AccountingService {
 
   constructor() { }
 
-  newAccounting = (accounting: Accounting) => {
+  public newAccounting = (accounting: Accounting) => {
     const newAccounting = new AccountingModel(
       uuidv4(),
       accounting.title,
@@ -29,4 +29,8 @@ export class AccountingService {
     this.accountingData.saveData();
   }
 
+  public deleteAccounting = (id:string) => {
+    this.accountingData.accounting.update((accountingModel : AccountingModel[]) => accountingModel.filter((accounting: AccountingModel) => accounting.id != id).map(_ => _));
+    this.accountingData.saveData();
+  }
 }
