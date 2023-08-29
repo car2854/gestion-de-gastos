@@ -1,11 +1,18 @@
 @import './../../../styles/colors';
 
+.description{
+}
 
 .histories{
   
+  margin-block: 25px;
+  border-radius: 2px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: calc(100vh - 600px);
+  overflow-y: scroll;
 
   .initial{
 
@@ -13,12 +20,35 @@
 
   .history{
 
-    border: 1px solid black;
-
-    .title{
+    border: $border;
+    border-radius: 3px;
+    
+    .history-title{
+      p{
+        font-size: 12px;
+        time{
+          font-weight: bold;
+        }
+      }
+      padding: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background-color: #FAFAFA;
+
+      button{
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px;
+        padding-inline: 10px;
+      }
+    }
+    
+    .history-body{
+      padding: 12px;
+
     }
 
   }
