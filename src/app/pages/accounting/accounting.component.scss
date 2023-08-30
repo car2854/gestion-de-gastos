@@ -7,11 +7,11 @@
   
   margin-block: 25px;
   border-radius: 2px;
-  padding: 8px;
+  padding-block: 8px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  height: calc(100vh - 575px);
+  max-height: calc(100vh - 575px);
   overflow-y: scroll;
 
   .initial{

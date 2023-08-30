@@ -21,4 +21,9 @@ export class AccountingListComponent {
   public deleteAccounting = (id:string) => {
     this.accontingService.deleteAccounting(id);
   }
+
+
+  public calculateAmountTotal = (accounting: AccountingModel) => {
+    return (accounting.list.length === 0) ? accounting.amount : accounting.list[accounting.list.length - 1].amountTotal;
+  }
 }

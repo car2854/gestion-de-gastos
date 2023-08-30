@@ -3,7 +3,6 @@
 
 *{
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: $primary;
   margin: 0px;
   padding: 0px;
   background-color: transparent;
@@ -11,6 +10,7 @@
 }
 
 body{
+  background-color: $primary;
   height: 100vh;
 }
 
@@ -48,6 +48,19 @@ form{
   }
 
 
+}
+
+.content{
+  background-color: $primary-component;
+  padding: 18px 50px;
+  margin: 0px 80px;
+  border-radius: 4px;
+}
+
+.content-none{
+  background-color: transparent;
+  padding: 18px 80px;
+  margin-bottom: 30px;
 }
 
 .group{

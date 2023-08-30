@@ -1,35 +1,49 @@
-<h1 class="title-page">Lista de cuentas creadas</h1>
-<div class="accounting-list">
 
-  <div class="card" *ngFor="let accounting of accountingData.accounting(); trackBy: trackByFn">
+<div class="content">
     
-    <div class="image">
-      <img src="" alt="">
-    </div>
+  <h1 class="title-page">Lista de cuentas creadas</h1>
+  <ng-container *ngIf="accountingData.accounting().length === 0; else elseEmpty">
+    
+    <app-empty title="La lista esta vacia"></app-empty>
 
-    <div class="title">
-      <h1>{{accounting.title}}</h1>
-    </div>
+  </ng-container>
+  <ng-template #elseEmpty>
+    <div class="accounting-list">
 
-    <div class="body">
-      <div class="body-title">
-        <p>{{accounting.description}}</p>
+      
+      <div class="card" *ngFor="let accounting of accountingData.accounting(); trackBy: trackByFn">
+        
+        <div class="image">
+          <img src="" alt="">
+        </div>
+
+        <div class="title">
+          <h1>{{accounting.title}}</h1>
+        </div>
+
+        <div class="body">
+          <div class="body-title">
+            <p>{{accounting.description}}</p>
+          </div>
+          <div class="body-footer">
+            <small>{{calculateAmountTotal(accounting)}}</small>
+          </div>
+        </div>
+
+        <div class="options">
+          <button type="button" [routerLink]="['/dashboard/accounting', accounting.id]">Ver</button>
+          <div class="separe"></div>
+          <button type="button" (click)="deleteAccounting(accounting.id)">Borrar</button>
+        </div>
+
+      
       </div>
-      <div class="body-footer">
-        <small>{{accounting.amount}} Bs.</small>
-      </div>
-    </div>
 
-    <div class="options">
-      <button type="button" [routerLink]="['/dashboard/accounting', accounting.id]">Ver</button>
-      <div class="separe"></div>
-      <button type="button" (click)="deleteAccounting(accounting.id)">Borrar</button>
     </div>
+  </ng-template>
 
-  
+  <div class="buttons">
+    <div class="button" routerLink="/dashboard/new-accounting"><p>Agregar</p></div>
   </div>
-</div>
 
-<div class="buttons">
-  <div class="button" routerLink="/dashboard/new-accounting"><p>Agregar</p></div>
 </div>

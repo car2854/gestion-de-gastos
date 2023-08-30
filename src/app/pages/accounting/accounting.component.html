@@ -1,74 +1,92 @@
-<div class="description">
-  <h1 class="title-page">{{accounting.title}}</h1>
-  
-  <p>{{accounting.description}}</p>
-  
-  <p>Fecha inicio <time datetime="2023-08-24T15:00">{{accounting.created_at | date}}</time></p>
-  
-  <div>
-    <p>Monto Inicial: <span>{{accounting.amount}} Bs.</span></p>
-    <p>Monto Final: <span>{{(accounting.list.length > 0) ? accounting.list[accounting.list.length - 1].amountTotal : accounting.amount}} Bs.</span></p>
-  </div>
-</div>
+<div class="content">
 
-
-
-<div class="histories">
-
-  <!-- <div class="initial history">
-    <h1>Cantidad <span>{{accounting.amount}} Bs.</span></h1>
-  </div> -->
-
-  <ng-container *ngFor="let list of accounting.list; trackBy: trackByFn">
-    <div class="history">
-      <div class="history-title">
-        <div>
-          <h1>Cantidad <span>{{list.amount}} Bs.</span></h1>
-          <p>Fecha: <time>{{list.date | date}}</time></p>
-        </div>
-        <button type="button" (click)="delete(list.id)">
-          <i class="fa-solid fa-trash-can"></i>
-        </button>
-      </div>
-      <div class="history-body">
-        <p>{{list.description}}.</p>
-        <p class="end-amount">Monto Final <span>{{list.amountTotal}} Bs.</span></p>
-      </div>
+  <div class="description">
+    <h1 class="title-page">{{accounting.title}}</h1>
+    
+    <p>{{accounting.description}}</p>
+    
+    <p>Fecha inicio <time datetime="2023-08-24T15:00">{{accounting.created_at | date}}</time></p>
+    
+    <div>
+      <p>Monto Inicial: <span>{{accounting.amount}} Bs.</span></p>
+      <p>Monto Final: <span>{{(accounting.list.length > 0) ? accounting.list[accounting.list.length - 1].amountTotal : accounting.amount}} Bs.</span></p>
     </div>
+  </div>
+  
+</div>  
+
+<div class="content-none">
+
+  <ng-container *ngIf="accounting.list.length === 0; else elseEmpty">
+    
+    <app-empty title="No hay nada en la lista"></app-empty>
+  
   </ng-container>
-  
-
-
-  <!-- <div class="end history">
-    <h1>Termino con 20Bs</h1>
-  </div> -->
+  <ng-template #elseEmpty>
+    
+    <div class="histories">
+    
+      <!-- <div class="initial history">
+        <h1>Cantidad <span>{{accounting.amount}} Bs.</span></h1>
+      </div> -->
+    
+      <ng-container *ngFor="let list of accounting.list; trackBy: trackByFn">
+        <div class="history">
+          <div class="history-title">
+            <div>
+              <h1>Cantidad <span>{{list.amount}} Bs.</span></h1>
+              <p>Fecha: <time>{{list.date | date}}</time></p>
+            </div>
+            <button type="button" (click)="delete(list.id)">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+          <div class="history-body">
+            <p>{{list.description}}.</p>
+            <p class="end-amount">Monto Final <span>{{list.amountTotal}} Bs.</span></p>
+          </div>
+        </div>
+      </ng-container>
+      
+    
+    
+      <!-- <div class="end history">
+        <h1>Termino con 20Bs</h1>
+      </div> -->
+    </div>
+    
+  </ng-template>
 </div>
 
 
-<form [formGroup]="listForm" (ngSubmit)="addNewList()">
 
-  <h1 class="title-page">Agregar nuevo</h1>
 
-  <div class="group">
-    <div class="form-group">
-      <label for="">Cantidad</label>
-      <input type="number" formControlName="amount">
+<div class="content">
+  <form [formGroup]="listForm" (ngSubmit)="addNewList()">
+  
+    <h1 class="title-page">Nuevo</h1>
+  
+    <div class="group">
+      <div class="form-group">
+        <label for="">Cantidad</label>
+        <input type="number" formControlName="amount">
+      </div>
+      <div class="form-group">
+        <label for="">Fecha</label>
+        <input type="date" formControlName="date">
+      </div>
     </div>
+  
     <div class="form-group">
-      <label for="">Fecha</label>
-      <input type="date" formControlName="date">
+      <label for="">Descripcion</label>
+      <textarea formControlName="description"></textarea>
     </div>
-  </div>
-
-  <div class="form-group">
-    <label for="">Descripcion</label>
-    <textarea formControlName="description"></textarea>
-  </div>
-
-  <div class="buttons">
-    <div class="button" (click)="addNewList()"><p>Agregar nuevo</p></div>
-  </div>
-
-
-  <button hidden type="submit"></button>
-</form>
+  
+    <div class="buttons">
+      <div class="button" (click)="addNewList()"><p>Agregar nuevo</p></div>
+    </div>
+  
+  
+    <button hidden type="submit"></button>
+  </form>
+</div>
