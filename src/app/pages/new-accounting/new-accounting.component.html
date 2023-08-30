@@ -1,5 +1,7 @@
 <div class="content">
-  <h1 class="title-page">Nuevo perfil contable</h1>
+  <div class="title-page">
+    <h1>Nuevo perfil contable</h1>
+  </div>
   
   <form [formGroup]="accountingForm" (ngSubmit)="newAccounting()" autocomplete="off">
   
@@ -19,7 +21,7 @@
     </div>
   
     <div class="buttons">
-      <div class="button" (click)="newAccounting()"><p>Crear</p></div>
+      <div class="button-primary" (click)="newAccounting()"><p>Crear</p></div>
     </div>
   
     <button type="submit" hidden></button>

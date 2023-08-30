@@ -1,21 +1,26 @@
 <div class="content">
 
   <div class="description">
-    <h1 class="title-page">{{accounting.title}}</h1>
-    
+    <div class="title-page">
+      <h1>{{accounting.title}}</h1>
+      <p>Fecha inicio <time datetime="2023-08-24T15:00">{{accounting.created_at | date}}</time></p>
+    </div>
+
     <p>{{accounting.description}}</p>
     
-    <p>Fecha inicio <time datetime="2023-08-24T15:00">{{accounting.created_at | date}}</time></p>
     
-    <div>
-      <p>Monto Inicial: <span>{{accounting.amount}} Bs.</span></p>
-      <p>Monto Final: <span>{{(accounting.list.length > 0) ? accounting.list[accounting.list.length - 1].amountTotal : accounting.amount}} Bs.</span></p>
+    <div class="group-amount">
+      <div class="amount">
+        <p>Monto Inicial: <span>{{accounting.amount}} Bs.</span></p>
+        <p>Monto Final: <span>{{(accounting.list.length > 0) ? accounting.list[accounting.list.length - 1].amountTotal : accounting.amount}} Bs.</span></p>
+      </div>
+      <div class="buttons">
+        <div (click)="modal()" class="button-primary"><p>Nuevo</p></div>
+      </div>
     </div>
   </div>
   
-</div>  
 
-<div class="content-none">
 
   <ng-container *ngIf="accounting.list.length === 0; else elseEmpty">
     
@@ -56,37 +61,48 @@
     </div>
     
   </ng-template>
+
+
+
+
+
 </div>
 
+<div *ngIf="!modalIsHidden" class="modal" (click)="hiddenModal($event)">
 
-
-
-<div class="content">
-  <form [formGroup]="listForm" (ngSubmit)="addNewList()">
+  <div class="content">
+    <form [formGroup]="listForm" (ngSubmit)="addNewList()">
+      
   
-    <h1 class="title-page">Nuevo</h1>
+      <div class="title-page">
   
-    <div class="group">
-      <div class="form-group">
-        <label for="">Cantidad</label>
-        <input type="number" formControlName="amount">
+        <h1>Nuevo</h1>
       </div>
-      <div class="form-group">
-        <label for="">Fecha</label>
-        <input type="date" formControlName="date">
+    
+      <div class="group">
+        <div class="form-group">
+          <label for="">Cantidad</label>
+          <input type="number" formControlName="amount">
+        </div>
+        <div class="form-group">
+          <label for="">Fecha</label>
+          <input type="date" formControlName="date">
+        </div>
       </div>
-    </div>
-  
-    <div class="form-group">
-      <label for="">Descripcion</label>
-      <textarea formControlName="description"></textarea>
-    </div>
-  
-    <div class="buttons">
-      <div class="button" (click)="addNewList()"><p>Agregar nuevo</p></div>
-    </div>
-  
-  
-    <button hidden type="submit"></button>
-  </form>
+    
+      <div class="form-group">
+        <label for="">Descripcion</label>
+        <textarea formControlName="description"></textarea>
+      </div>
+    
+      <div class="buttons">
+        <div class="button-primary" (click)="addNewList()"><p>Agregar nuevo</p></div>
+        <div class="button-cancel" (click)="closeModal()"><p>Cancelar</p></div>
+      </div>
+    
+    
+      <button hidden type="submit"></button>
+    </form>
+  </div>
+
 </div>

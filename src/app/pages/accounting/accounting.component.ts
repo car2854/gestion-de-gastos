@@ -20,6 +20,7 @@ export class AccountingComponent {
 
   public accounting!: AccountingModel;
   public id: string = '';
+  public modalIsHidden: boolean = true;
 
   public amount = 0;
 
@@ -54,6 +55,8 @@ export class AccountingComponent {
       date: null,
       description: null
     });
+
+    this.modalIsHidden = true;
     
   }
 
@@ -65,4 +68,18 @@ export class AccountingComponent {
     this.listService.deleteList(this.id, listId);
   }
 
+  public hiddenModal = (event:any) => {
+    if (event.srcElement.classList.contains('modal')){
+      this.closeModal();
+    }
+  }
+  
+  public closeModal = () => {
+    this.modalIsHidden = true;
+  }
+
+  public modal = () => {
+    this.modalIsHidden = false;
+  }
+  
 }

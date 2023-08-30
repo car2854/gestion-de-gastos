@@ -52,15 +52,9 @@ form{
 
 .content{
   background-color: $primary-component;
-  padding: 18px 50px;
-  margin: 0px 80px;
+  padding: 50px 50px;
+  margin: 40px 40px;
   border-radius: 4px;
-}
-
-.content-none{
-  background-color: transparent;
-  padding: 18px 80px;
-  margin-bottom: 30px;
 }
 
 .group{
@@ -72,13 +66,14 @@ form{
 .buttons{
   display: flex;
   justify-content: flex-end;
-  .button{
+  gap: 12px;
+  .button-primary{
     overflow: hidden;
     cursor: pointer;
     border: none;
     position: relative;
     border-radius: 2px;
-    background-color: $secundary;
+    background-color: $color-primary;
     color: white;
     padding-inline: 40px;
     padding-block: 8px;
@@ -89,23 +84,64 @@ form{
     }
   }
 
-  .button:active::before{
-    background-color: red;
+  .button-primary:active::before{
+    background-color: $color-primary-click;
+
   }
 
-  .button::before{
+  .button-primary::before{
     z-index: 0;
     content: '';
     position: absolute;
     top: 34px;
     left: -138px;
-    background-color: $secundary-light;
+    background-color: $color-primary-light;
     width: 100%;
     height: 100%;
     transition: 0.5s;
   }
 
-  .button:hover::before{
+  .button-primary:hover::before{
+    top: 0px;
+    left: 0px;
+  }
+
+  // Button cancel
+
+  .button-cancel{
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    border-radius: 2px;
+    background-color: $color-cancel;
+    color: white;
+    padding-inline: 40px;
+    padding-block: 8px;
+    p{
+      color: white;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .button-cancel:active::before{
+    background-color: $color-cancel-click;
+  }
+
+  .button-cancel::before{
+    z-index: 0;
+    content: '';
+    position: absolute;
+    top: 34px;
+    left: -138px;
+    background-color: $color-cancel-light;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+  }
+
+  .button-cancel:hover::before{
     top: 0px;
     left: 0px;
   }
@@ -121,9 +157,12 @@ p{
 
 .title-page{
   text-align: center;
-  margin: 22px;
-}
+  margin-bottom: 22px;
 
+  h1{
+  }
+
+}
 // size
 
 .h-120{
@@ -141,10 +180,10 @@ p{
 
 /* Cambiar el color del thumb (control) de la barra de desplazamiento */
 ::-webkit-scrollbar-thumb {
-  background: $secundary-light; /* Color del thumb */
+  background: $color-primary-light; /* Color del thumb */
 }
 
 /* Cambiar el color del thumb cuando se pase el cursor sobre él */
 ::-webkit-scrollbar-thumb:hover {
-  background: $secundary-light; /* Color del thumb al pasar el cursor */
+  background: $color-primary-light; /* Color del thumb al pasar el cursor */
 }

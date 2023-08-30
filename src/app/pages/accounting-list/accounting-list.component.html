@@ -1,7 +1,9 @@
 
 <div class="content">
     
-  <h1 class="title-page">Lista de cuentas creadas</h1>
+  <div class="title-page">
+    <h1>Lista de cuentas creadas</h1>
+  </div>
   <ng-container *ngIf="accountingData.accounting().length === 0; else elseEmpty">
     
     <app-empty title="La lista esta vacia"></app-empty>
@@ -42,8 +44,6 @@
     </div>
   </ng-template>
 
-  <div class="buttons">
-    <div class="button" routerLink="/dashboard/new-accounting"><p>Agregar</p></div>
-  </div>
+
 
 </div>

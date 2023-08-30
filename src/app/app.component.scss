@@ -4,6 +4,10 @@ header{
   padding: 20px;
   background: $secundary;
   color: white;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
   nav{
     display: flex;
     justify-content: space-between;
@@ -18,5 +22,9 @@ header{
 }
 
 section{
+  position: relative;
+  z-index: 0px;
+  top: 65px;
+  border: 1px solid transparent;
 }
 

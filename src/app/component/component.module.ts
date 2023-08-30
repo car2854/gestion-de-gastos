@@ -6,13 +6,13 @@ import { EmptyComponent } from './empty/empty.component';
 
 @NgModule({
   declarations: [
-    EmptyComponent
+    EmptyComponent,
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    EmptyComponent
+    EmptyComponent,
   ]
 })
 export class ComponentModule { }
