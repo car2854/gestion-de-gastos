@@ -7,7 +7,7 @@ import { AccountingDataService } from './services/data/accounting-data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'accounting-angular';
+  title = 'Gestion de cuentas';
   
   private accountingData = inject(AccountingDataService);
 
