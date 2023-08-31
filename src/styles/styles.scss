@@ -164,8 +164,15 @@ p{
 
 }
 
-.active{
-  background-color: $color-primary-light;
+.active::before{
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  // border: 1px solid white;
+  border-bottom: 1px solid $color-primary-click;
+  border-width: 5px;
 }
 
 // size
