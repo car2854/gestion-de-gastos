@@ -21,8 +21,12 @@ const routes: Routes = [
         path: 'new-accounting',
         component: NewAccountingComponent
       },
+      { path: '', redirectTo: '/dashboard/accounting-list', pathMatch: 'full' },
+      { path: '**', redirectTo: '/dashboard/accounting-list' }
     ]
-  }
+  },
+  { path: '', redirectTo: '/dashboard/accounting-list', pathMatch: 'full' },
+  { path: '**', redirectTo: '/dashboard/accounting-list' }
 ];
 
 @NgModule({
