@@ -20,8 +20,6 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-height: calc(100vh - 575px);
-  overflow-y: scroll;
 
   .initial{
 
@@ -105,6 +103,22 @@
   }
 }
 
+@media (max-width: 580px) {
+  .description{
+    text-align: center;
+
+    .description-page{
+      min-height: 25px;
+    }
+
+    .group-amount{
+      gap: 12px;
+      flex-direction: column;
+
+    }
+
+  }
+}
 
 @keyframes button {
   0%{
