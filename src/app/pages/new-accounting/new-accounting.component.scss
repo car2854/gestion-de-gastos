@@ -4,3 +4,12 @@
     padding-inline: 65px;
   }
 }
+
+
+@media (max-width: 600px) {
+  .buttons{
+    justify-content: center;
+    .button{
+    }
+  }
+}
