@@ -20,17 +20,16 @@ a{
 }
 
 form{
-  
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
 
-  .form-group{
-    width: 100%;
-    display: flex;
-    gap: 12px;
-    flex-direction: column;
-  }
+.form-group{
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
 
   input, textarea{
     padding: 8px;
@@ -47,8 +46,33 @@ form{
     box-shadow: 0px 0px 2px 0.5px rgba(0,0,255,1);
   }
 
-
 }
+
+.form-group-icon{
+
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #D9D9D9;
+  transition: 0.2s;
+  
+  input{
+    padding: 8px;
+    width: 100%;
+    border: 0px;
+  }
+  
+  input:focus{
+    outline: none;
+  }
+  
+  i{
+    padding: 8px;
+  }
+  
+}
+
+
 
 .content{
   background-color: $primary-component;

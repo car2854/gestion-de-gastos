@@ -33,4 +33,5 @@ export class AccountingService {
     this.accountingData.accounting.update((accountingModel : AccountingModel[]) => accountingModel.filter((accounting: AccountingModel) => accounting.id != id).map(_ => _));
     this.accountingData.saveData();
   }
+
 }

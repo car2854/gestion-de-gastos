@@ -4,7 +4,13 @@
   <div class="title-page">
     <h1>Lista de cuentas creadas</h1>
   </div>
-  <ng-container *ngIf="accountingData.accounting().length === 0; else elseEmpty">
+
+  <div class="form-group-icon" (input)="inputText($event)">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Buscar">
+  </div>
+
+  <ng-container *ngIf="getAccounting().length === 0; else elseEmpty">
     
     <app-empty title="La lista esta vacia"></app-empty>
 
@@ -13,7 +19,7 @@
     <div class="accounting-list">
 
       
-      <div class="card" *ngFor="let accounting of accountingData.accounting(); trackBy: trackByFn">
+      <div class="card" *ngFor="let accounting of getAccounting(); trackBy: trackByFn">
         
         <div class="image">
           <img src="" alt="">
